@@ -15,3 +15,14 @@ cc_binary(
         ":point",
     ],
 )
+
+cc_test(
+    name = "test_suite",
+    size = "small",
+    srcs = ["tests/test_point.cc"],
+    copts = COPTS,
+    deps = [
+        ":point",
+        "@com_google_googletest//:gtest_main",
+    ],
+)
