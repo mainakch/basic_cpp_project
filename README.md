@@ -28,6 +28,12 @@ image, then use that environment to run the build system. Consider
 the source code repository on the host filesystem with the docker runtime to
 make development more efficient.
 
+Once inside the docker or an equivalent environment, the build system may be
+run as follows:
+
+- build: `bazel build //:app`
+- test: `bazel test //:test_suite`
+
 ## Discussions
 
 The following sections describe other relevant aspects of a normal development
