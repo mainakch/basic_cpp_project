@@ -1,13 +1,13 @@
-#ifndef POINT_H
-#define POINT_H
+#ifndef INCLUDE_POINT_H
+#define INCLUDE_POINT_H
 
 class Point {
  public:
   Point(const double x, const double y);
-  double calculate_norm() const;
+  double CalculateNorm() const;
 
  private:
   double x_;
   double y_;
 };
-#endif
+#endif  // INCLUDE_POINT_H

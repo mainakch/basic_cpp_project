@@ -1,4 +1,4 @@
-COPTS = ["-Iinclude"]
+COPTS = [""]
 
 cc_library(
     name = "point",
@@ -19,7 +19,7 @@ cc_binary(
 cc_test(
     name = "test_suite",
     size = "small",
-    srcs = ["tests/test_point.cc"],
+    srcs = ["tests/point_test.cc"],
     copts = COPTS,
     deps = [
         ":point",

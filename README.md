@@ -3,11 +3,12 @@
 This repository contains a basic C++ project structure with widely accepted
 conventions for common SW development needs.
 
-This grew out of a need to have a common template to use while starting new C++
-projects. This will be updated regularly with useful patterns, idioms and newer
-conventions.
+Useful patterns, idioms and conventions will be backported to this repository
+on a regular basis.
 
-It uses:
+## Conventions adopted
+
+This project uses:
 
 - the [Google Test Framework](https://github.com/google/googletest) for
   testing,
@@ -18,34 +19,27 @@ It uses:
   code,
 - [Docker](https://www.docker.com) as an environment for the build system, and
 - [Google style guide](https://google.github.io/styleguide/cppguide.html) for
-  stylistic conventions not otherwise specified.
+  naming and project layout conventions.
 
 ## Usage
 
 [Build](https://docs.docker.com/engine/reference/commandline/build/) the docker
 image, then use that environment to run the build system. Consider
 [sharing](https://docs.docker.com/engine/reference/run/#volume-shared-filesystems)
-the source code repository on the host filesystem with the docker runtime to
-make development more efficient.
+the source code repository on the host filesystem with the container (at
+`/home/developer/github`) to make development more efficient.
 
 Once inside the docker or an equivalent environment, the build system may be
 run as follows:
 
-- build: `bazel build //:app`
-- test: `bazel test //:test_suite`
+- build: `bazel build //:app`,
+- test: `bazel test //:test_suite --test_output=all`,
+- clean: `bazel clean`.
 
 ## Discussions
 
 The following sections describe other relevant aspects of a normal development
 workflow.
-
-### Including external dependencies
-
-The project uses various methods to include third party dependencies. The
-following are included:
-
-- Dependencies installable in the Docker environment, and
-- Git Submodules.
 
 ### Auto-formatting code
 
@@ -61,6 +55,6 @@ review. The following tools are recommended for the respective file types:
 
 ### Other references
 
-For well-thought guidelines on producing maintainable code,
+For well-thought-out guidelines on producing maintainable code,
 [CppCoreGuidelines](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines)
 is highly recommended.
