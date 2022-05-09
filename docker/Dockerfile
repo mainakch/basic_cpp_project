@@ -10,6 +10,7 @@ RUN curl https://bazel.build/bazel-release.pub.gpg | apt-key add -
 
 RUN apt update
 RUN apt -y install cmake git build-essential bazel
+RUN apt -y install python3 vim
 
 # add user named developer with id 501
 RUN useradd -u 501 -m developer -s /bin/bash
