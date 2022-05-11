@@ -1,6 +1,7 @@
 load("@rules_pkg//pkg:tar.bzl", "pkg_tar")
 load("@rules_pkg//pkg:deb.bzl", "pkg_deb")
-COPTS = [""]
+
+COPTS = ["-std=c++17"]
 
 cc_library(
     name = "point",
@@ -33,10 +34,10 @@ cc_test(
 
 pkg_tar(
     name = "basic_app",
-    strip_prefix = "/src",
-    package_dir = "/usr/local/bin",
     srcs = ["//:app"],
     mode = "0755",
+    package_dir = "/usr/local/bin",
+    strip_prefix = "/src",
 )
 
 pkg_tar(
@@ -50,14 +51,13 @@ pkg_tar(
 pkg_deb(
     name = "debian_app",
     architecture = "amd64",
-    built_using = "unzip (6.0.1)",
-    description = "Basic C++ app",
     data = ":debian-data",
     depends = [
         "zlib1g-dev",
         "unzip",
     ],
+    description = "Basic C++ app",
     maintainer = "Author <author@domain.org>",
-    package = "simple_app",
+    package = "basic_app",
     version = "0.0.1",
 )

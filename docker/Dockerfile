@@ -9,8 +9,8 @@ RUN echo "deb [arch=amd64] https://storage.googleapis.com/bazel-apt stable jdk1.
 RUN curl https://bazel.build/bazel-release.pub.gpg | apt-key add -
 
 RUN apt update
-RUN apt -y install cmake git build-essential bazel
-RUN apt -y install python3 vim
+RUN apt -y install cmake git build-essential bazel python3 vim doxygen clang-tidy clang-format
+RUN apt -y install zip
 
 # add user named developer with id 501
 RUN useradd -u 501 -m developer -s /bin/bash
