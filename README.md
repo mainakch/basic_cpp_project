@@ -24,7 +24,8 @@ This project uses:
 ## Usage
 
 [Build](https://docs.docker.com/engine/reference/commandline/build/) the docker
-image, then use that environment to run the build system. Consider
+[image](docker/Dockerfile), then use that environment to run the build system.
+Consider
 [sharing](https://docs.docker.com/engine/reference/run/#volume-shared-filesystems)
 the source code repository on the host filesystem with the container (at
 `/home/developer/github`) to make development more efficient.
@@ -32,7 +33,7 @@ the source code repository on the host filesystem with the container (at
 Once inside the docker or an equivalent environment, the build system may be
 run as follows:
 
-- build: `bazel build //:app`,
+- build: `bazel build //:basic_app`,
 - test: `bazel test //:test_suite --test_output=all`,
 - clean: `bazel clean`.
 
