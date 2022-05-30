@@ -4,7 +4,7 @@
 ///
 #ifndef INCLUDE_POINT_H
 #define INCLUDE_POINT_H
-#include "cereal/cereal.hpp"
+#include <cereal/cereal.hpp>
 
 ///
 /// Class representing a 2D Point

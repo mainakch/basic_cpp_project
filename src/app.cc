@@ -1,6 +1,7 @@
+#include <boost/program_options.hpp>
+#include <cereal/archives/json.hpp>
 #include <iostream>
 
-#include "boost/program_options.hpp"
 #include "include/point.h"
 
 int main(int argc, char **argv) {
@@ -26,6 +27,11 @@ int main(int argc, char **argv) {
 
   Point pt{2, 3};
   for (int ct = 0; ct < vm["number_of_lines"].as<int>(); ++ct) {
+    {
+      cereal::JSONOutputArchive ar(std::cout);
+      std::cout << "Point is ";
+      ar(pt);
+    }
     std::cout << "Norm is " << pt.CalculateNorm() << '\n';
   }
   return 0;

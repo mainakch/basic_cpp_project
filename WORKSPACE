@@ -15,29 +15,6 @@ http_archive(
     ],
 )
 
-_RULES_BOOST_COMMIT = "652b21e35e4eeed5579e696da0facbe8dba52b1f"
-
-http_archive(
-    name = "com_github_nelhage_rules_boost",
-    sha256 = "c1b8b2adc3b4201683cf94dda7eef3fc0f4f4c0ea5caa3ed3feffe07e1fb5b15",
-    strip_prefix = "rules_boost-%s" % _RULES_BOOST_COMMIT,
-    urls = [
-        "https://github.com/nelhage/rules_boost/archive/%s.tar.gz" % _RULES_BOOST_COMMIT,
-    ],
-)
-
-http_archive(
-    name = "cereal",
-    build_file = "//third_party:cereal.BUILD",
-    sha256 = "16a7ad9b31ba5880dac55d62b5d6f243c3ebc8d46a3514149e56b5e7ea81f85f",
-    urls =
-        ["https://github.com/USCiLab/cereal/archive/refs/tags/v1.3.2.tar.gz"],
-)
-
 load("@rules_pkg//:deps.bzl", "rules_pkg_dependencies")
 
 rules_pkg_dependencies()
-
-load("@com_github_nelhage_rules_boost//:boost/boost.bzl", "boost_deps")
-
-boost_deps()

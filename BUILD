@@ -1,25 +1,24 @@
 load("@rules_pkg//pkg:tar.bzl", "pkg_tar")
 load("@rules_pkg//pkg:deb.bzl", "pkg_deb")
 
-COPTS = ["-std=c++17"]
+COPTS = ["-std=c++17" ]
 
 cc_library(
     name = "point",
     srcs = ["lib/point.cc"],
     hdrs = ["include/point.h"],
     copts = COPTS,
-    deps = [
-        "@cereal//:libcereal",
-    ],
 )
 
 cc_binary(
     name = "app",
     srcs = ["src/app.cc"],
     copts = COPTS,
+    linkopts = [
+    "-lboost_program_options",
+    ],
     deps = [
         ":point",
-        "@boost//:program_options",
     ],
 )
 
