@@ -8,6 +8,9 @@ cc_library(
     srcs = ["lib/point.cc"],
     hdrs = ["include/point.h"],
     copts = COPTS,
+    deps = [
+        "@cereal//:libcereal",
+    ],
 )
 
 cc_binary(
@@ -16,7 +19,7 @@ cc_binary(
     copts = COPTS,
     deps = [
         ":point",
-	"@boost//:program_options",
+        "@boost//:program_options",
     ],
 )
 
