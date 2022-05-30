@@ -16,6 +16,7 @@ cc_binary(
     copts = COPTS,
     deps = [
         ":point",
+	"@boost//:program_options",
     ],
 )
 

@@ -10,7 +10,7 @@ RUN curl https://bazel.build/bazel-release.pub.gpg | apt-key add -
 
 RUN apt update
 RUN apt -y install cmake git build-essential bazel python3 vim doxygen clang-tidy clang-format
-RUN apt -y install zip
+RUN apt -y install zip libboost-all-dev
 
 # add user named developer with id 501
 RUN useradd -u 501 -m developer -s /bin/bash
