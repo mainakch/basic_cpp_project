@@ -30,8 +30,9 @@ int main(int argc, char **argv) {
     {
       cereal::JSONOutputArchive ar(std::cout);
       std::cout << "Point is ";
-      ar(pt);
+      ar(CEREAL_NVP(pt));
     }
+    std::cout << '\n';
     std::cout << "Norm is " << pt.CalculateNorm() << '\n';
   }
   return 0;

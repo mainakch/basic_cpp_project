@@ -29,7 +29,7 @@ class Point {
 
   template <class Archive>
   void serialize(Archive& ar, std::uint32_t const version) {
-    ar(x_, y_);
+    ar(CEREAL_NVP(x_), CEREAL_NVP(y_));
   }
 };
 #endif  // INCLUDE_POINT_H
