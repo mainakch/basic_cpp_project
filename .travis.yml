@@ -8,7 +8,6 @@ services:
 before_install:
   - cd docker; docker build -t test .; cd ..
   - echo ${TRAVIS_BUILD_DIR}
-  - docker run -it -v ${TRAVIS_BUILD_DIR}:/home/developer/github -d test --name basic_environment
 
 script:
-  - docker exec -it basic_environment bash -c "cd /home/developer/github; bazel test //:test_suite"
+  - docker run -it -v ${TRAVIS_BUILD_DIR}:/home/developer/github -d test bash -c "cd /home/developer/github; bazel test //:test_suite"
