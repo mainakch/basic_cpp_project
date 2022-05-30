@@ -11,4 +11,4 @@ before_install:
   - docker run -it -v ${TRAVIS_BUILD_DIR}:/home/developer/github -d test --name basic_environment
 
 script:
-  - docker exec basic_environment bash -c "cd /home/developer/github; bazel test //:test_suite"
+  - docker exec -it basic_environment bash -c "cd /home/developer/github; bazel test //:test_suite"
