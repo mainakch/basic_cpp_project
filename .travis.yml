@@ -6,7 +6,7 @@ services:
   - docker
 
 before_install:
-  - docker build -t test docker/Dockerfile
+  - docker build -t test -f docker/Dockerfile
   - docker run -it -v ./:/home/developer/github -d test --name basic_environment
 
 script:
