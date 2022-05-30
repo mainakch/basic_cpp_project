@@ -10,4 +10,4 @@ before_install:
   - echo ${TRAVIS_BUILD_DIR}
 
 script:
-  - docker run -it -v ${TRAVIS_BUILD_DIR}:/home/developer/github test bash -c "cd /home/developer/github; bazel test //:test_suite"
+  - docker run -it -v ${TRAVIS_BUILD_DIR}:/home/developer/github --entrypoint /bin/bash test -c "cd /home/developer/github; bazel test //:test_suite"
