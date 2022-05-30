@@ -2,11 +2,12 @@ dist: focal
 
 language: c++
 
+services:
+  - docker
+
 before_install:
-  - wget https://github.com/bazelbuild/bazel/releases/download/6.0.0-pre.20220421.3/bazel-6.0.0-pre.20220421.3-installer-linux-x86_64.sh 
-  - wget https://github.com/bazelbuild/bazel/releases/download/6.0.0-pre.20220421.3/bazel-6.0.0-pre.20220421.3-installer-linux-x86_64.sh.sha256
-  - sha256sum -c  bazel-6.0.0-pre.20220421.3-installer-linux-x86_64.sh.sha256
-  - sudo bash bazel-6.0.0-pre.20220421.3-installer-linux-x86_64.sh
+  - cd docker; docker build -t test .; cd ..
+  - echo ${TRAVIS_BUILD_DIR}
 
 script:
-  - bazel test //:test_suite
+  - docker run -it -v ${TRAVIS_BUILD_DIR}:/home/developer/github --entrypoint /bin/bash test -c "cd /home/developer/github; bazel test //:test_suite"

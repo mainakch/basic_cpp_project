@@ -4,6 +4,7 @@
 ///
 #ifndef INCLUDE_POINT_H
 #define INCLUDE_POINT_H
+#include <cereal/cereal.hpp>
 
 ///
 /// Class representing a 2D Point
@@ -22,7 +23,13 @@ class Point {
   double CalculateNorm() const;
 
  private:
+  friend class cereal::access;
   double x_;  ///< x coordinate
   double y_;  ///< y coordinate
+
+  template <class Archive>
+  void serialize(Archive& ar, std::uint32_t const version) {
+    ar(CEREAL_NVP(x_), CEREAL_NVP(y_));
+  }
 };
 #endif  // INCLUDE_POINT_H
