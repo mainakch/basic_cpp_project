@@ -3,6 +3,7 @@ dist: focal
 language: c++
 
 before_install:
+  - sudo apt -y install libboost-all-dev libcereal-dev
   - wget https://github.com/bazelbuild/bazel/releases/download/6.0.0-pre.20220421.3/bazel-6.0.0-pre.20220421.3-installer-linux-x86_64.sh 
   - wget https://github.com/bazelbuild/bazel/releases/download/6.0.0-pre.20220421.3/bazel-6.0.0-pre.20220421.3-installer-linux-x86_64.sh.sha256
   - sha256sum -c  bazel-6.0.0-pre.20220421.3-installer-linux-x86_64.sh.sha256
